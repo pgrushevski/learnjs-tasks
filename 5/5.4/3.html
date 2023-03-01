@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getMaxSubSum(arr) {
+        let sum = 0;
+        let i = [];
+        for (let x of arr) {
+            sum = sum + x;
+            i.push(sum); 
+            if (sum < 0) {
+            sum = 0; 
+            i.push(sum); 
+            continue; 
+            }
+        }
+        let min = i[0]; 
+        for (let n = 1; n < i.length; n++) {
+        let max = Math.max(min, i[n]); 
+        min = max;
+        }  
+        if (arr.length === 0) {
+            min = 0; 
+        }
+        return min;
+        }
+    </script>
+</body>
+</html>

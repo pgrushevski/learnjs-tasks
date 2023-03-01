@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function formatDate(date) {
+            let diff = new Date() - date;
+            let a = (n) => ((n < 10) ? '0' + n : n);
+            let day = a(date.getDate());
+            let month = a(date.getMonth()+1);
+            let year = a(date.getFullYear());
+            let hour = a(date.getHours());
+            let min = a(date.getMinutes());
+
+            if (diff < 1000) {
+                return "прямо сейчас";
+            } else if (diff < 1000*60) {
+                return `${diff/1000} сек. назад`;
+            } else if (diff < 1000*60*60) {
+                return `${diff/(1000*60)} мин. назад`;
+            } else {
+                return `${day}.${month}.${year}, ${hour}:${min}`;
+    }
+}
+    </script>
+</body>
+</html>
